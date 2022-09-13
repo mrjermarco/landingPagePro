@@ -1,13 +1,28 @@
-# Landing Page Project
+# Landing Page Project - JerMarco Britton
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* Project Description
+* Usage
+* Things of Note
+* Thank You
 
-## Instructions
+### Project Description
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This project is the final graded project for Udacity's Frontend Web Development program in partnership with OneTen of building an interactive landing page using JavaScript, HTML and CSS.
 
-To get started, open `js/app.js` and start building out the app's functionality
+### Usage
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+This project is not intended for any other use other than to be reviewed by one of Udacity's code reviewers to be graded.
+
+### Things of Note
+
+1. You will find the script tag for the project at the bottom of the index.html file before the closing body tag.
+
+2. The unordered list in the nav tag is dynamically built in the app.js file and so you will find the list items there.
+
+3. All css styles and media queries can be found in the styles.css file excluding the "visibility: hidden" property for the navigation bar upon scroll found at Line 126 in the app.js file.
+
+### Thank You
+
+To the person reviewing this project, thank you and be well.
