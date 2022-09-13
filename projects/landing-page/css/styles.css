@@ -1,0 +1,286 @@
+/* ---- Base Styles ---- */
+
+/* added font size to html to have reference for size in the document before creating media queries */
+html {
+    font-size: 16px;
+}
+
+body {
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+}
+
+@media only screen and (min-width: 23em){
+    /* Typeography Styles*/
+h1 {
+    justify-content: left;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3em;
+    /* margin: 2em 1rem; */
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 2em;
+    color: #fff;
+}
+
+
+p {
+    line-height: 1.6em;
+    color: #fff;
+}
+
+/* Navigations Styles */
+
+.page__header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar__menu ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height: 7vh;
+    font-size:x-small;
+}
+
+.navbar__menu li {
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+    display: inline-block;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* changed targeted classes to updated classes added in JavaScript */
+    .secAnchor { 
+        display: inline-block;
+        padding: 1em;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+
+.secAnchor:hover {
+    transition: ease 0.3s all;
+    background-color: #cc1;
+}
+
+
+/* Section Styles */
+
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+}
+
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right; 
+}
+
+.landing__container {
+    max-width: 50em;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: #000;
+    padding: 3em;
+    height: 3vh;
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right; 
+}
+
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random due to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.187);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+
+/* Section Active Styles class was renamed activeState */
+
+section.activeState {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+section.activeState .landing__container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.activeState .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg)
+		           translate(-1em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-1em) 
+		           rotate(-360deg);
+	}
+}
+}
+
+/* media queries to test responsiveness and manipulate styles */
+@media only screen and (min-width: 27em) and (max-width: 28.995em) {
+    .navbar__menu ul {
+        font-size: 0.7em;
+        padding-bottom: 6px
+    }
+}
+
+
+@media only screen and (min-width: 29em) and (max-width: 35.99em) {
+    h1 {
+        display: flex;
+        flex-wrap: wrap;
+        color: red;
+    }
+
+    .navbar__menu li {
+        font-size: 1.5em;
+    }
+
+    .navbar__menu ul {
+        padding-bottom: 8px;
+    }
+}
+
+
+
+@media only screen and (min-width: 36em) and (max-width: 52.99em) {
+    h1 {
+        color: yellow;
+    }
+
+    .navbar__menu ul {
+        justify-content: right;
+        padding-right: 4px;
+    }
+}
+
+@media only screen and (min-width: 53em) and (max-width: 61.99em) {
+    h1 {
+        color: green;
+    }
+
+    .navbar__menu ul {
+        justify-content: right;
+        padding-right: 4px;
+    }
+}
+
+@media only screen and (min-width: 62em) {
+    h1 {
+        color: burlywood;
+    }
+
+    .navbar__menu ul {
+        justify-content: right;
+        padding-right: 4px;
+    }
+
+}
